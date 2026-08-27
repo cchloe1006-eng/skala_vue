@@ -16,7 +16,7 @@
 | 외부 데이터 | OpenWeatherMap Current Weather / 5 Day Forecast API                    |
 | 핵심 기술   | Vue 3, Vue Router, Pinia, Axios, Element Plus                          |
 | 저장소      | [GitHub Repository](https://github.com/cchloe1006-eng/skala_vue)       |
-| 배포 주소   | [https://skalavue-sigma.vercel.app](https://skalavue-sigma.vercel.app) |     |
+| 배포 주소   | [https://skalavue-sigma.vercel.app](https://skalavue-sigma.vercel.app) |
 
 ### ✅ 현재 구현 상태
 
@@ -253,12 +253,14 @@ Vercel을 통해 프로덕션 배포를 진행했습니다.
 OpenWeatherMap 요청은 `units=metric`으로 고정합니다. 원본 섭씨 값을 직접 바꾸지 않고 화면에 표시할 때만 Store의 설정에 따라 화씨를 계산합니다.
 
 ```js
+const rawTemp = props.cityItem.temp // 기본 원본 데이터는 섭씨 숫자
+
 const displayTemp = computed(() => {
   if (configStore.unit === 'fahrenheit') {
     return Math.round((rawTemp * 9) / 5 + 32)
   }
 
-  return rawTemp
+  return rawTemp // 'celsius'일 때는 원본 그대로 반환
 })
 ```
 
@@ -278,7 +280,7 @@ Element Plus를 적용할 때 검색, 정렬, 상세 이동 로직은 유지했�
 <details>
 <summary><strong>4. 이전 실습 코드를 왜 남겨두었나요?</strong></summary>
 
-기초 이벤트, Composition API, 컴포넌트 과제의 결과물을 별도 Route에 보관했습니다. 최종 코드만 남기는 것보다 프로젝트가 어떤 과정을 거쳐 발전했는지 비교하고 복습하기 위한 선택입니다.
+기초 이벤트, Composition API, 컴포넌트 과제의 결과물을 `components/practices/` 폴더에 그대로 보관했습니다. 최종 화면에서 접근하는 Route는 아니지만, 최종 코드만 남기는 것보다 프로젝트가 어떤 과정을 거쳐 발전했는지 비교하고 복습하기 위한 선택입니다.
 
 </details>
 
@@ -434,7 +436,7 @@ npm run build
 - 도시 데이터를 `cityData.js`로 통합
 - API 실패 시 Mock Data fallback 구성
 - Element Plus 전체 등록을 선택 등록으로 최적화
-- 이전 학습 결과를 별도 Route에 보존
+- 이전 학습 결과를 별도 폴더에 보존
 
 ---
 
@@ -462,7 +464,7 @@ npm run build
 
 ## 📝 프로젝트 회고
 
-이번 프로젝트에서 가장 크게 달라진 생각은 “컴포넌트를 많이 나누면 좋은 코드”가 아니라는 점입니다. 상태를 누가 가지고 있는지, 자식이 무엇을 입력받고 어떤 사건을 알리는지, 여러 페이지가 공유해야 하는 상태인지 먼저 판단해야 분리의 기준이 생겼습니다.
+이번 프로젝트에서 가장 크게 달라진 생각은 "컴포넌트를 많이 나누면 좋은 코드"가 아니라는 점입니다. 상태를 누가 가지고 있는지, 자식이 무엇을 입력받고 어떤 사건을 알리는지, 여러 페이지가 공유해야 하는 상태인지 먼저 판단해야 분리의 기준이 생겼습니다.
 
 또한 비동기 API는 `await`로 데이터를 받는 코드만을 의미하지 않았습니다. 사용자가 기다리는 동안의 화면, 실패했을 때의 대체 흐름, 설정값의 공개 범위, 여러 요청 중 일부만 실패하는 상황까지 함께 설계해야 실제 사용 가능한 기능이 됩니다.
 
