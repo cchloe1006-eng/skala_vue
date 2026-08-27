@@ -8,15 +8,15 @@
 
 ## 📌 프로젝트 정보
 
-| 구분        | 내용                                                             |
-| ----------- | ---------------------------------------------------------------- |
-| 프로젝트    | 날씨 대시보드                                                    |
-| 주요 기능   | 실시간 날씨, 검색, 정렬, 상세 예보, 즐겨찾기, 섭씨·화씨 전환     |
-| 지원 지역   | 서울 외 11개 지역, 총 12개 지역                                  |
-| 외부 데이터 | OpenWeatherMap Current Weather / 5 Day Forecast API              |
-| 핵심 기술   | Vue 3, Vue Router, Pinia, Axios, Element Plus                    |
-| 저장소      | [GitHub Repository](https://github.com/cchloe1006-eng/skala_vue) |
-| 배포 주소   | 배포 후 추가 예정                                                |
+| 구분        | 내용                                                                   |
+| ----------- | ---------------------------------------------------------------------- |
+| 프로젝트    | 날씨 대시보드                                                          |
+| 주요 기능   | 실시간 날씨, 검색, 정렬, 상세 예보, 즐겨찾기, 섭씨·화씨 전환           |
+| 지원 지역   | 서울 외 11개 지역, 총 12개 지역                                        |
+| 외부 데이터 | OpenWeatherMap Current Weather / 5 Day Forecast API                    |
+| 핵심 기술   | Vue 3, Vue Router, Pinia, Axios, Element Plus                          |
+| 저장소      | [GitHub Repository](https://github.com/cchloe1006-eng/skala_vue)       |
+| 배포 주소   | [https://skalavue-sigma.vercel.app](https://skalavue-sigma.vercel.app) |     |
 
 ### ✅ 현재 구현 상태
 
